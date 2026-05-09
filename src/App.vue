@@ -1,25 +1,16 @@
 <template>
-  <div>
-    <h1>isVisible 값: {{ isVisible }}</h1>
-    <h1 v-if="isVisible">
-      이 문장은 isVisible 값은 {{ isVisible }}일 경우에만 보입니다.
-    </h1>
-
-    <button @click="toggleVisibility">버튼</button>
-  </div>
+    <h1>점수는?</h1>
+    <h1 v-if="score > 90">Excellent!!</h1>
+    <h1 v-else-if="score > 75">Good!</h1>
+    <h1 v-else>Needs Improvement.</h1>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isVisible: false,
+      score: 95
     };
-  },
-  method: {
-    toggleVisibility() {
-      this.isVisible = !this.isVisible;
-    },
-  },
+  }
 };
 </script>
