@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{ data }}</h1>
-    <h1 v-html="data2"></h1>
+    <h1 v-bind:class="className">이렇게 사용해야 해요!</h1>
+    <h1 v-bind:class="{active: isActive}">이렇게 사용해야 해요!</h1>
   </div>
 </template>
 
@@ -9,10 +9,18 @@
 export default {
   data() {
     return {
-      data: "오리지널 메세지 데이터",
-    //   data2: "<h2 style='color: blue '>HTML 코드 메세지</h2>"
-      data2: "<h2 style='color: blue '>HTML 코드 메세지</h2>"
+        className: "title",
+        isActive: true,
     };
   },
 };
 </script>
+
+<style scoped>
+h1.active{
+    color: green;
+}
+.title{
+    color: orange;
+}
+</style>
