@@ -1,9 +1,7 @@
 <template>
   <div>
-    <h1>프로그래밍 프레임 워크: {{ language }}</h1>
-    <h1>Vue를 공부하자</h1>
-    <h2>콘텐츠: {{ content }}</h2>
-    <h3>작성자: {{author}}</h3>
+    <h1>{{ data }}</h1>
+    <h1 v-html="data2"></h1>
   </div>
 </template>
 
@@ -11,9 +9,9 @@
 export default {
   data() {
     return {
-      language: "Vue.js",
-      content: "데이터 보관하기",
-      author: "홍길동"
+      data: "오리지널 메세지 데이터",
+    //   data2: "<h2 style='color: blue '>HTML 코드 메세지</h2>"
+      data2: "<h2 style='color: blue '>HTML 코드 메세지</h2>"
     };
   },
 };
