@@ -1,34 +1,19 @@
 <template>
-  <input v-model="contactInfo" type="text">
-  <h3>이메일: {{ email }}</h3>
-  <h3>휴대전화: {{ phone }}</h3>
+  <input v-model="email" type="text">
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      email: "example@example.com",
-      phone: "010-1234-5678"
+      email: "example@example.com"
     };
   },
-  computed: {
-    contactInfo: {
-      get(){
-        return `이메일: ${this.email}, 휴대전화: ${this.phone}`;
-      },
-      set(newValue){
-        const parts = newValue.split(",").map((part)=> part.trim());
-        console.log(parts.length);
-
-        if(parts.length===2){
-          const emailPart = parts.find((p)=>p.startsWith("이메일:"));
-          const phonePart = parts.find((p)=> p.startsWith("휴대전화:"));
-
-          if(emailPart) this.email = emailPart.replace("이메일:","").trim();
-          if(phonePart) this.phone = phonePart.replace("휴대전화:","").trim();
-        }
-      }
+  watch:{
+    email(newValue,oldValue){
+      console.log("newValue",newValue);
+      console.log("oldValue",oldValue);
     }
   }
 };
