@@ -1,26 +1,20 @@
 <template>
-  <h1>{{ count }}</h1>
-  <button @click="addCount">카운트증가</button>
+  <div>
+    <ChildComponent title="제목" subTitle="부제목"/>
+  </div>
 </template>
 
 <script>
+import ChildComponent from "./components/ch04/04-08.vue";
+
 export default {
-  data() {
-    return{
-      count: 10,
-    }
+  components:{
+    ChildComponent,
   },
-  beforeUpdate(){
-    console.log("훅 - beforeUpdate: DOM 반영전",this.count);
-    console.log("훅 - beforeupdate: 현재 DOM 값",document.querySelector("h1").textContent);
-  },
-  updated(){
-    console.log("훅 - updated: DOM 업데이트 완료",this.count);
-    console.log("훅 - updated: 반영된 DOM 값",document.querySelector("h1").textContent);
-  },
-  methods: {
-    addCount() {
-      this.count++;
+  data(){
+    return {
+      title: "부모 컴포넌트에서 작성한 데이터 - title",
+      subTItle: "부모 컴포넌트에서 작성한 데이터 - subTitle"
     }
   }
 };
