@@ -1,20 +1,27 @@
 <template>
   <h1>{{ count }}</h1>
+  <button @click="addCount">카운트증가</button>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      count: 10
-    };
+    return{
+      count: 10,
+    }
   },
-  /* 생성 단계 라이프사이클 */
-  beforeCreate(){
-    console.log("훅 beforeCreate: 인스턴스 생성 직후 데이터 초기화 전", this.count);
+  beforeUpdate(){
+    console.log("훅 - beforeUpdate: DOM 반영전",this.count);
+    console.log("훅 - beforeupdate: 현재 DOM 값",document.querySelector("h1").textContent);
   },
-  created(){
-    console.log("훅 create: 데이터와 이벤트 모두가 초기화 된 후", this.count);
+  updated(){
+    console.log("훅 - updated: DOM 업데이트 완료",this.count);
+    console.log("훅 - updated: 반영된 DOM 값",document.querySelector("h1").textContent);
+  },
+  methods: {
+    addCount() {
+      this.count++;
+    }
   }
 };
 </script>
