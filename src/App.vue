@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ChildComponent title="제목" subTitle="부제목"/>
+    <ChildComponent v-bind:title="title" v-bind:subTitle="subTitle"/>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   data(){
     return {
       title: "부모 컴포넌트에서 작성한 데이터 - title",
-      subTItle: "부모 컴포넌트에서 작성한 데이터 - subTitle"
+      subTitle: "부모 컴포넌트에서 작성한 데이터 - subTitle"
     }
   }
 };

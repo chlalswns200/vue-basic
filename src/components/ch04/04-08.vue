@@ -7,6 +7,15 @@
 </template>
 <script>
 export default {
-    props: ["title","subTitle"]
+    props:{
+        title:{
+            type: String,
+            required: true
+        },
+        subTitle:{
+            type:String,
+            default:"이건 기본값"
+        }
+    }
 }
 </script>
